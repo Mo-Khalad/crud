@@ -1,0 +1,69 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.rtl.min.css"> 
+<link rel="stylesheet" href="css/num.css">
+</head>
+
+ <body>
+
+ 
+<div class="container bg-info p-5 mb-3">
+
+   <div class="form-Inputs">
+
+      <div class="input-gp">
+         <label>product Name</label>
+         <input id="productName" class="form-control mb-3" >
+         <div id="nameAlert" class="alert alert-danger d-none" >sorry</div>
+      </div>
+
+      <div class="input-gp">
+         <label>product Price</label>
+         <input id="productPrice" class="form-control mb-3" >
+      </div>
+
+      <div class="input-gp">
+         <label>product Category</label>
+         <input id="productCategory" class="form-control mb-3" >
+      </div>
+
+      <div class="input-gp">
+         <label>product Description</label>
+         <textarea id="productDescription" class="form-control mb-3" ></textarea>
+      </div>
+
+      <button id="addbtn" class="btn btn-primary mb-3">add Product</button>
+   </div>
+
+   <div class="data my-5">
+      <input id="search" class="form-control mb-4" placeholder="sreach your name">
+      <table class="table table-striped">
+         <thead>
+            <th></th>
+            <th>name</th>
+            <th>price</th>
+            <th>category</th>
+            <th>description</th>
+            <th></th>
+            <th></th>
+         </thead>
+         <tbody id="tableBody">
+
+         </tbody>
+      </table>
+   </div>
+</div>
+      
+
+   
+
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="main.js"></script>
+</body>
+
+
+</html>
+
