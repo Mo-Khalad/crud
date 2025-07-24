@@ -143,7 +143,7 @@ addBtn.onclick=function(){
     productPrice.classList.remove("is-valid");
     productCategory.classList.remove("is-valid");
     productDescription.classList.remove("is-valid");
-    document.getElementById("addBtn").innerHTML="add Product";
+    document.getElementById("addBtn").innerHTML="add Product ";
   }
   
   displayProduct();
