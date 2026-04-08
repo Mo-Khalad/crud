@@ -1,96 +1,3 @@
-<<<<<<< HEAD
-//toLowerCase
-var productName=document.getElementById("productName");
-var productprice=document.getElementById("productPrice");
-var productCategory=document.getElementById("productCategory");
-var productDescription=document.getElementById("productDescription");
-var addProduct=document.getElementById("addbtn");
-var inputs=document.getElementsByClassName("form-control");
-var searchInput=document.getElementById("search");
-var nameAlert=document.getElementById("nameAlert");
-var products=[];
-var val;
-var tnp;
-
-
-
-productName.onkeyup=function()
-{
-var nameRejex= /^[A][a-z]{2,6}$/;
-
-  if(!nameRejex.test(productName.value))
-
-{
-
-  addProduct.disabled=true;
-  productName.classList.add("is-invalid");
-  productName.classList.remove("is-valid");
-  nameAlert.classList.remove("d-none");
-
-}
-
-
-else
-
-{
-
-  addProduct.removeAttribute("disabled");
-  productName.classList.add("is-valid");
-  productName.classList.remove("is-invalid");
-  nameAlert.classList.add("d-none");
-
- 
-}
-  
-}
-
-
-productprice.onkeyup=function()
-{
- 
- 
- 
- 
- var nameRejex= /^[A]/;
- var n=nameRejex.test(productprice.value)
- console.log(n)
-
-  
- 
-}
-if(JSON.parse(localStorage.getItem("productList"))!=null)
-{
-products=JSON.parse(localStorage.getItem("productList"))
-
-displayProduct();
-}
-
-addProduct.onclick=function(){
-
-  if(document.getElementById("addbtn").innerHTML=="add Product")
-  {
-    add();
-  }
-
-
-  else
-  {
-    updates(tnp);
-
-    document.getElementById("addbtn").innerHTML="add Product";
-
-   
-  }
-  
-  displayProduct();
-  clearList();
-
-
-
- 
-
-
-=======
 var productName=document.getElementById("productName");
 var productPrice=document.getElementById("productPrice");
 var productCategory=document.getElementById("productCategory");
@@ -107,7 +14,7 @@ var val;
 var tnp;
 var nameRegex= /^[a-zA-Z][a-zA-Z- ]{2}/;
 var priceRegex = /[0-9][0-9][0-9]/
-var descriptionRegex=/^[a-zA-Z][a-zA-Z- ]{4,20}$/;
+var descriptionRegex=/^[a-zA-Z][a-zA-Z-0-9 ]{4,20}$/;
 var categoryRegex=/^[a-zA-Z][a-zA-Z- ]{3}/;
 
 if( JSON.parse(localStorage.getItem("productList")) !=null ){
@@ -191,11 +98,9 @@ else{
     productDescription.classList.add("is-valid");
     productDescription.classList.remove("is-invalid");
 }
->>>>>>> db65710 (Add validation part when entering data and improvements to the code)
 }
 
-searchInput.onkeyup=function(val)
-{
+searchInput.onkeyup=function(val){
   var trs="";
 val=searchInput.value;
   for(var i=0;i<products.length;i++)
@@ -210,41 +115,14 @@ val=searchInput.value;
   <td>${products[i].price}</td>
   <td>${products[i].category}</td>
   <td>${products[i].description}</td>
-  <td><button onclick="deleteProduct(${i})" class="btn btn-danger">delete</button></td>
-<<<<<<< HEAD
-  <td><button onclick="update(${i})" class="btn btn-warning">update</button></td>
+  <td><button onclick="deleteProduct(${i})" class="btn btn-primary text-light">delete</button></td>
+  <td><button onclick="updateProduct(${i})" class="btn text-dark update_btn">update</button></td>
   </tr>
 `
-
-=======
-  <td><button onclick="updateProduct(${i})" class="btn btn-warning">update</button></td>
-  </tr>
-`
->>>>>>> db65710 (Add validation part when entering data and improvements to the code)
 }
 tnp=i;
-  }
+}
 document.getElementById("tableBody").innerHTML=trs;
-<<<<<<< HEAD
-
-}
-function add()
-{
-  var product=
-  {
-    names:productName.value,
-    price:productprice.value,
-    category:productCategory.value,
-    description:productDescription.value,
-  }
-    products.push(product);
-
-  localStorage.setItem("productList",JSON.stringify(products));
-}
-
-function displayProduct()
-{
-=======
 }
 
 addBtn.onclick=function(){
@@ -272,8 +150,7 @@ addBtn.onclick=function(){
 }
 
 function addProduct(){
-  var product =
-  {
+  var product ={
     names:productName.value,
     price:productPrice.value,
     category:productCategory.value,
@@ -284,10 +161,8 @@ function addProduct(){
 }
 
 function displayProduct(){
->>>>>>> db65710 (Add validation part when entering data and improvements to the code)
   var trs="";
-  for(var i=0;i<products.length;i++)
-  {
+  for(var i=0;i<products.length;i++){
   trs+= `
   <tr>
   <td>${i+1}</td>
@@ -295,27 +170,16 @@ function displayProduct(){
   <td>${products[i].price}</td>
   <td>${products[i].category}</td>
   <td>${products[i].description}</td>
-  <td><button onclick="deleteProduct(${i})" class="btn btn-danger">delete</button></td>
-<<<<<<< HEAD
-  <td><button onclick="update(${i})" class="btn btn-warning">update</button></td>
+  <td><button onclick="deleteProduct(${i})" class="btn btn-primary text-light">delete</button></td>
+  <td><button onclick="updateProduct(${i})" class="text-dark btn update_btn">update</button></td>
   </tr>
 `
 }
 
-
 document.getElementById("tableBody").innerHTML=trs;
 }
 
-=======
-  <td><button onclick="updateProduct(${i})" class="btn btn-warning">update</button></td>
-  </tr>
-`
-}
-document.getElementById("tableBody").innerHTML=trs;
-}
-
-function updateProduct(index)
-{
+function updateProduct(index){
       productName.value=products[index].names;
       productPrice.value=products[index].price;
       productCategory.value=products[index].category;
@@ -330,8 +194,7 @@ function updateProduct(index)
 }
 
 function displayUpdate(tn){
-  var product=
-      {
+  var product={
         names:productName.value,
         price:productPrice.value,
         category:productCategory.value,
@@ -341,70 +204,16 @@ function displayUpdate(tn){
       localStorage.setItem("productList",JSON.stringify(products));
 }
    
->>>>>>> db65710 (Add validation part when entering data and improvements to the code)
-function clearList()
-{
+function clearList(){
 for(var i=0;i<inputs.length;i++)
 {
   inputs[i].value="";
 }
 }
 
-function deleteProduct(index)
-{
+function deleteProduct(index){
   products.splice(index,1)
   displayProduct();
+  clearList();
   localStorage.setItem("productList",JSON.stringify(products));
-
 }
-<<<<<<< HEAD
-    
-    function update(index)
-    {
-      productName.value=products[index].names;
-      productprice.value=products[index].price;
-      productCategory.value=products[index].category;
-      productDescription.value=products[index].description;
-      document.getElementById("addbtn").innerHTML="update";
-      tnp=index; 
-    }
-    function updates(tn){
-
-    
-     var product=
-      {
-        names:productName.value,
-        price:productprice.value,
-        category:productCategory.value,
-        description:productDescription.value,
-      }
-
-      products[tn]=product;
-
-      localStorage.setItem("productList",JSON.stringify(products));
-
-    }
-=======
-
-
-
-
-
-
-
-
-
-
->>>>>>> db65710 (Add validation part when entering data and improvements to the code)
-    
-
-    
-
-
-    
-    
-    
-    
-    
-  
-

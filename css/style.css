@@ -1,0 +1,35 @@
+body{
+    background:linear-gradient(to right , rgb(21, 1, 26) , rgb(25, 1, 48)  );
+}
+.container{
+    background-color: rgba(19, 1, 24, 0.788);
+    box-shadow: 0.1px 0.1px 5px 0.1px #fffdfd;
+    border-radius: 7px;
+}
+button{
+    background-color: rgba(189, 11, 238, 0.788) !important; 
+    border: 0 !important;
+    transition: all 1s;
+    padding-left: 20px !important; 
+    padding-right: 20px !important;
+}
+.update_btn{
+    background-color: #fffdfd !important;
+    transition: all 1s;
+}
+.update_btn:hover{
+    color: #fffdfd !important;
+}
+button:hover{
+    background-color: rgba(136, 5, 172, 0.788) !important; 
+}
+td , th , h1{
+    color: aliceblue !important;
+}
+
+@media screen and (max-width:567px) {
+    button{
+        padding-left: 6px !important; 
+        padding-right: 6px !important;
+    }
+}
